@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeKeeper - Premium Watch Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-clock"></i>
+                <span>TimeKeeper</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="payment.html" class="nav-cart"><i class="fas fa-shopping-cart"></i> Cart (0)</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Timeless Elegance</h1>
+            <p class="hero-subtitle">Discover our curated collection of premium timepieces</p>
+            <button class="hero-cta" onclick="scrollToSection('collections')">
+                Shop Collection
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1618215649872-6e3143a716ec" alt="Premium Watch">
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-filter-section">
+        <div class="container">
+            <div class="search-filter-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="product-search" placeholder="Search luxury timepieces...">
+                </div>
+                <div class="category-filters">
+                    <button class="category-filter active" data-category="all">All Collections</button>
+                    <button class="category-filter" data-category="luxury">Luxury</button>
+                    <button class="category-filter" data-category="sport">Sport</button>
+                    <button class="category-filter" data-category="smart">Smart</button>
+                    <button class="category-filter" data-category="vintage">Vintage</button>
+                    <button class="category-filter" data-category="fashion">Fashion</button>
+                    <button class="category-filter" data-category="diving">Diving</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="collections">
+        <div class="container">
+            <h2 class="section-title">Exquisite Timepieces</h2>
+            <div class="collections-grid">
+                <!-- Luxury Watches -->
+                <div class="collection-category" data-category="luxury">
+                    <h3 class="category-title">Luxury Watches</h3>
+                    <div class="products-grid">
+                        <div class="product-card" data-delay="0" data-category="luxury" data-name="Heritage Collection" data-price="2499">
+                            <div class="product-image">
+                                <img src="https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg" alt="Luxury Watch Collection">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Heritage Collection</h4>
+                                <p class="product-price">$2,499</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="100" data-category="luxury" data-name="Golden Elite" data-price="3899">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1604242692760-2f7b0c26856d" alt="Gold Luxury Watch">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Golden Elite</h4>
+                                <p class="product-price">$3,899</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="200" data-category="luxury" data-name="Ocean Crown" data-price="4299">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1612177343582-665b93b34403" alt="Blue Luxury Watch">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Ocean Crown</h4>
+                                <p class="product-price">$4,299</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sport Watches -->
+                <div class="collection-category" data-category="sport">
+                    <h3 class="category-title">Sport Watches</h3>
+                    <div class="products-grid">
+                        <div class="product-card" data-delay="300" data-category="sport" data-name="Athletic Pro" data-price="899">
+                            <div class="product-image">
+                                <img src="https://images.pexels.com/photos/26775343/pexels-photo-26775343.jpeg" alt="Colorful Sport Watches">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Athletic Pro</h4>
+                                <p class="product-price">$899</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="400" data-category="sport" data-name="Carbon Elite" data-price="1299">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1474859740426-f0db7f4f5d3e" alt="Black Sport Watch">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Carbon Elite</h4>
+                                <p class="product-price">$1,299</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="500" data-category="sport" data-name="Runner's Choice" data-price="699">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1480179087180-d9f0ec044897" alt="Running Watch">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Runner's Choice</h4>
+                                <p class="product-price">$699</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Watches -->
+                <div class="collection-category" data-category="smart">
+                    <h3 class="category-title">Smart Watches</h3>
+                    <div class="products-grid">
+                        <div class="product-card" data-delay="600" data-category="smart" data-name="Tech Master" data-price="599">
+                            <div class="product-image">
+                                <img src="https://images.pexels.com/photos/267391/pexels-photo-267391.jpeg" alt="Smart Watch Blue">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Tech Master</h4>
+                                <p class="product-price">$599</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="700" data-category="smart" data-name="Digital Pro" data-price="799">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1" alt="Apple Watch">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Digital Pro</h4>
+                                <p class="product-price">$799</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="800" data-category="smart" data-name="Pure Connect" data-price="699">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1617625802912-cde586faf331" alt="Smart Watch White">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Pure Connect</h4>
+                                <p class="product-price">$699</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vintage Watches -->
+                <div class="collection-category" data-category="vintage">
+                    <h3 class="category-title">Vintage Watches</h3>
+                    <div class="products-grid">
+                        <div class="product-card" data-delay="900" data-category="vintage" data-name="Classic Chrono" data-price="1899">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1603303895535-83b77d40796e" alt="Vintage Chronograph">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Classic Chrono</h4>
+                                <p class="product-price">$1,899</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="1000" data-category="vintage" data-name="Heritage Pocket" data-price="2199">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5" alt="Pocket Watch">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Heritage Pocket</h4>
+                                <p class="product-price">$2,199</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="1100" data-category="vintage" data-name="Royal Gold" data-price="3299">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1517643070288-f6b3933ad727" alt="Gold Pocket Watch">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Royal Gold</h4>
+                                <p class="product-price">$3,299</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fashion Watches -->
+                <div class="collection-category" data-category="fashion">
+                    <h3 class="category-title">Fashion Watches</h3>
+                    <div class="products-grid">
+                        <div class="product-card" data-delay="1200" data-category="fashion" data-name="Urban Style" data-price="399">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1580120173753-41a3c2779e4d" alt="Fashion Watch Silver">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Urban Style</h4>
+                                <p class="product-price">$399</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="1300" data-category="fashion" data-name="Minimalist" data-price="299">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1579174786776-a488cbc8ec5c" alt="Minimalist Watch">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Minimalist</h4>
+                                <p class="product-price">$299</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diving Watches -->
+                <div class="collection-category" data-category="diving">
+                    <h3 class="category-title">Diving Watches</h3>
+                    <div class="products-grid">
+                        <div class="product-card" data-delay="1400" data-category="diving" data-name="Ocean Master" data-price="2899">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49" alt="Ocean Chronograph">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Ocean Master</h4>
+                                <p class="product-price">$2,899</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="1500" data-category="diving" data-name="Deep Sea" data-price="3499">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1526045431048-f857369baa09" alt="Sea Dweller">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Deep Sea</h4>
+                                <p class="product-price">$3,499</p>
+                            </div>
+                        </div>
+                        <div class="product-card" data-delay="1600" data-category="diving" data-name="Aqua Pro" data-price="1599">
+                            <div class="product-image">
+                                <img src="https://images.pexels.com/photos/19051060/pexels-photo-19051060.jpeg" alt="Diving Watch Blue">
+                                <div class="product-overlay">
+                                    <button class="quick-view" onclick="openQuickView(this)">Quick View</button>
+                                    <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>Aqua Pro</h4>
+                                <p class="product-price">$1,599</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TimeKeeper</h4>
+                    <p>Crafting timeless elegance since 1923</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="payment.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TimeKeeper. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-gallery">
+                    <div class="modal-image">
+                        <img id="modalImage" src="" alt="">
+                    </div>
+                    <div class="modal-thumbnails">
+                        <div class="modal-thumbnail active">
+                            <img id="modalThumb1" src="" alt="">
+                        </div>
+                        <div class="modal-thumbnail">
+                            <img id="modalThumb2" src="" alt="">
+                        </div>
+                        <div class="modal-thumbnail">
+                            <img id="modalThumb3" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalPrice" class="modal-price"></p>
+                    <p id="modalDescription" class="modal-description">Meticulously crafted with Swiss precision, this timepiece represents the pinnacle of horological excellence. Each component is carefully selected and assembled by master craftsmen, ensuring unparalleled accuracy and enduring beauty.</p>
+                    
+                    <div class="watch-details">
+                        <h4>Technical Specifications</h4>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Movement:</span>
+                                <span class="detail-value" id="movement">Swiss Automatic</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Case Material:</span>
+                                <span class="detail-value" id="caseMaterial">Stainless Steel</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Crystal:</span>
+                                <span class="detail-value" id="crystal">Sapphire</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Water Resistance:</span>
+                                <span class="detail-value" id="waterResist">100m</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Case Diameter:</span>
+                                <span class="detail-value" id="caseDiameter">42mm</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Power Reserve:</span>
+                                <span class="detail-value" id="powerReserve">48 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Strap Material:</span>
+                                <span class="detail-value" id="strapMaterial">Leather</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Warranty:</span>
+                                <span class="detail-value" id="warranty">2 Years</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="modal-add-to-cart" onclick="addToCartFromModal()">
+                        <i class="fas fa-shopping-cart"></i> Add to Collection
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
