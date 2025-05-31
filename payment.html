@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TimeKeeper</title>
+    <link rel="stylesheet" href="payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-clock"></i>
+                <span>TimeKeeper</span>
+            </div>
+            <a href="index.html" class="back-to-shop">
+                <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+        </div>
+    </nav>
+
+    <!-- Checkout Container -->
+    <div class="checkout-container">
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h2><i class="fas fa-shopping-bag"></i> Order Summary</h2>
+            <div id="cart-items" class="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="order-total">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                </div>
+                <div class="total-row">
+                    <span>Tax:</span>
+                    <span id="tax">$0.00</span>
+                </div>
+                <div class="total-row total-final">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment-section">
+            <h2><i class="fas fa-credit-card"></i> Payment</h2>
+            
+            <!-- Payment Method Selection -->
+            <div class="payment-methods">
+                <div class="payment-method" data-method="card">
+                    <input type="radio" id="card-payment" name="payment-method" value="card" checked>
+                    <label for="card-payment">
+                        <div class="method-content">
+                            <div class="method-icons">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-amex"></i>
+                            </div>
+                            <span>Credit/Debit Card</span>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="payment-method" data-method="paypal">
+                    <input type="radio" id="paypal-payment" name="payment-method" value="paypal">
+                    <label for="paypal-payment">
+                        <div class="method-content">
+                            <div class="method-icons">
+                                <i class="fab fa-paypal"></i>
+                            </div>
+                            <span>PayPal</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Credit Card Form -->
+            <div id="card-form" class="payment-form active">
+                <div class="form-section">
+                    <h3>Billing Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="billing-name">Full Name</label>
+                            <input type="text" id="billing-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="billing-email">Email Address</label>
+                            <input type="email" id="billing-email" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="billing-address">Address</label>
+                        <input type="text" id="billing-address" placeholder="123 Main Street" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="billing-city">City</label>
+                            <input type="text" id="billing-city" placeholder="New York" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="billing-state">State</label>
+                            <input type="text" id="billing-state" placeholder="NY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="billing-zip">ZIP Code</label>
+                            <input type="text" id="billing-zip" placeholder="10001" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Payment Details</h3>
+                    <div class="card-input-wrapper">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <div class="card-input">
+                                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                <div class="card-icons">
+                                    <i class="fab fa-cc-visa" id="visa-icon"></i>
+                                    <i class="fab fa-cc-mastercard" id="mastercard-icon"></i>
+                                    <i class="fab fa-cc-amex" id="amex-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="place-order-btn" onclick="processCardPayment()">
+                    <i class="fas fa-lock"></i>
+                    Place Order
+                </button>
+            </div>
+
+            <!-- PayPal Form -->
+            <div id="paypal-form" class="payment-form">
+                <div class="paypal-container">
+                    <div class="paypal-header">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjI2IiB2aWV3Qm94PSIwIDAgMTAwIDI2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KPHBhdGggZD0iTTEyIDIuNUg0VjIzLjVIMTJDMTcuNSAyMy41IDIxIDIwIDIxIDE0VjEyQzIxIDYuNSAxNy41IDIuNSAxMiAyLjVaIiBmaWxsPSIjMDA5Q0RFIi8+DQo8cGF0aCBkPSJNMjEgMTJIMjlDMzEuNSAxMiAzMy41IDEwIDMzLjUgNy41VjdDMzMuNSA0LjUgMzEuNSAyLjUgMjkgMi41SDIxVjEyWiIgZmlsbD0iIzAwOUNERSIvPg0KPHBhdGggZD0iTTMzLjUgMTJIMzguNUM0MSAxMiA0MyAxNCA0MyAxNi41VjE3QzQzIDE5LjUgNDEgMjEuNSAzOC41IDIxLjVIMzMuNVYxMloiIGZpbGw9IiMwMDlDREUiLz4NCjxwYXRoIGQ9Ik00MyAxNkg1MC41QzUzIDE2IDU1IDE0IDU1IDExLjVWMTFDNTUgOC41IDUzIDYuNSA1MC41IDYuNUg0M1YxNloiIGZpbGw9IiMwMDNEODIiLz4NCjxwYXRoIGQ9Ik01NSAxNkg2Mi41QzY1IDE2IDY3IDE4IDY3IDIwLjVWMjFDNjcgMjMuNSA2NSAyNS41IDYyLjUgMjUuNUg1NVYxNloiIGZpbGw9IiMwMDlDREUiLz4NCjxwYXRoIGQ9Ik02NyAyMEg3Ny41QzgwIDIwIDgyIDIyIDgyIDI0LjVWMjVDODIgMjcuNSA4MCAyOS41IDc3LjUgMjkuNUg2N1YyMFoiIGZpbGw9IiMwMDlDREUiLz4NCjwvc3ZnPg==" alt="PayPal" class="paypal-logo">
+                        <h3>Secure PayPal Checkout</h3>
+                    </div>
+                    
+                    <div class="paypal-login">
+                        <div class="form-group">
+                            <label for="paypal-email">Email or mobile number</label>
+                            <input type="email" id="paypal-email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paypal-password">Password</label>
+                            <input type="password" id="paypal-password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember-me">
+                                <span class="checkmark"></span>
+                                Keep me logged in
+                            </label>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="paypal-login-btn" onclick="processPayPalPayment()">
+                        Log In
+                    </button>
+
+                    <div class="paypal-divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="paypal-signup-btn">
+                        Sign Up
+                    </button>
+
+                    <div class="paypal-footer">
+                        <p>Don't have a PayPal account? <a href="#">Sign up</a> for free.</p>
+                        <div class="paypal-security">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Payments by PayPal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase. Your order has been successfully processed.</p>
+            <div class="order-details">
+                <p><strong>Order Number:</strong> <span id="order-number">#TK001234</span></p>
+                <p><strong>Estimated Delivery:</strong> 3-5 business days</p>
+            </div>
+            <div class="success-actions">
+                <button onclick="goBackToShop()" class="continue-shopping-btn">
+                    Continue Shopping
+                </button>
+                <button onclick="downloadReceipt()" class="download-receipt-btn">
+                    <i class="fas fa-download"></i> Download Receipt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>
